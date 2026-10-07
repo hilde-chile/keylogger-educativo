@@ -1,0 +1,29 @@
+# Los registros capturados NO deben subirse al repositorio (pueden contener datos sensibles)
+registro_teclas.txt
+registro_teclas.jsonl
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Editores / SO
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Temporales de Office
+~$*
+*.tmp
+
+# Build / empaquetado (PyInstaller) - no debe subirse
+build/
+dist/
+*.spec.bak
+
+# Firebase (artefactos locales)
+.firebase/
+.firebaserc.local

@@ -1,0 +1,20 @@
+{
+  "archivo_txt": "registro_teclas.txt",
+  "archivo_jsonl": "registro_teclas.jsonl",
+  "tecla_salir": "esc",
+  "tecla_pausa": "f9",
+  "registrar_ventanas": true,
+  "duracion_maxima_min": 0.0,
+  "intervalo_recordatorio_min": 2.0,
+  "ventanas_excluidas": [
+    "keepass",
+    "bitwarden",
+    "1password",
+    "lastpass",
+    "dashlane",
+    "nordpass",
+    "proton pass",
+    "gestor de contraseñas",
+    "password manager"
+  ]
+}

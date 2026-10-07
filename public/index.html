@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" data-fx="on">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="description" content="Panel local para analizar el registro educativo de teclas. Solo lee y muestra; no captura nada." />
+  <title>Panel de Análisis — Keylogger Educativo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="saltar-enlace" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============================================================
+       Cartel de DEMO — solo en la versión pública (datos ficticios).
+       No existe en el panel local real; aquí avisa que NO son datos
+       reales, sino una demostración de la interfaz.
+       ============================================================ -->
+  <div style="background:#f2c14e;color:#1a1300;text-align:center;padding:8px 14px;font:600 13px/1.45 'Segoe UI',system-ui,sans-serif;">
+    🧪 DEMO pública · datos <strong>ficticios</strong> (no son capturas reales) · uso educativo — Curso de Hacking Ético
+  </div>
+
+  <!-- =====================================================================
+       Cabecera profesional (sticky): identidad + estado + controles
+       ===================================================================== -->
+  <header class="cabecera">
+    <div class="marca">
+      <div class="logo" aria-hidden="true">⌨️</div>
+      <div class="marca-txt">
+        <h1>Panel de Análisis<span class="cursor-bloque" aria-hidden="true">▊</span></h1>
+        <p class="subtitulo">
+          <span class="sub-normal">Keylogger Educativo · Curso de Hacking Ético</span>
+          <span class="sub-hacker" aria-hidden="true">root@keylog:~$ analizar --local</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="cabecera-acciones" role="toolbar" aria-label="Controles del panel">
+      <div class="estado-bloque">
+        <span id="estado" class="pill pill-ok" role="status" aria-live="polite">
+          <span class="led" aria-hidden="true"></span>
+          <span class="estado-texto">Cargando…</span>
+        </span>
+        <span class="estado-hora" id="actualizado" title="Hora de la última actualización">—</span>
+      </div>
+
+      <label class="switch" title="Refrescar los datos automáticamente cada 4 s">
+        <input type="checkbox" id="auto" checked />
+        <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+        <span class="switch-etq">Auto</span>
+      </label>
+
+      <button id="refrescar" class="btn" type="button" aria-label="Actualizar ahora">
+        <span aria-hidden="true">↻</span><span class="btn-txt">Actualizar</span>
+      </button>
+
+      <button id="tema" class="btn btn-icono" type="button"
+              aria-label="Cambiar tema (oscuro, claro, hacker)" title="Cambiar tema">
+        <span class="tema-icono" aria-hidden="true">🌙</span>
+      </button>
+
+      <label class="switch switch-fx" title="Activar efectos del tema hacker (scanlines, glow)">
+        <input type="checkbox" id="efectos" checked />
+        <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+        <span class="switch-etq">Efectos</span>
+      </label>
+
+      <button id="imprimir" class="btn" type="button"
+              aria-label="Exportar o imprimir a PDF" title="Exportar a PDF (Ctrl+P)">
+        <span aria-hidden="true">🖨️</span><span class="btn-txt">PDF</span>
+      </button>
+
+      <button id="presentacion" class="btn btn-primario" type="button"
+              aria-label="Activar modo presentación a pantalla completa" title="Modo presentación">
+        <span aria-hidden="true">⛶</span><span class="btn-txt">Presentar</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       Banner ético (visible por defecto, colapsable)
+       ===================================================================== -->
+  <div class="banner-etico" id="banner" role="note" aria-label="Aviso de uso ético">
+    <span class="banner-icono" aria-hidden="true">🛡️</span>
+    <span class="banner-texto">
+      <strong>Uso educativo y local.</strong>
+      Este panel solo <em>lee</em> tu propio registro: no captura nada ni envía datos por la red.
+      <span class="banner-legal">Registrar a terceros sin consentimiento es ilegal (Perú: Ley N.° 30096).</span>
+    </span>
+    <button class="banner-cerrar" id="banner-toggle" type="button"
+            aria-expanded="true" aria-controls="banner" aria-label="Colapsar aviso">−</button>
+  </div>
+
+  <main class="contenido" id="contenido">
+
+    <!-- Encabezado solo visible al imprimir -->
+    <div class="print-encabezado" aria-hidden="true">
+      <h2>Informe del Panel de Análisis — Keylogger Educativo</h2>
+      <p>Generado localmente · Uso educativo · No captura datos · No usa la red.</p>
+    </div>
+
+    <!-- ===== Estado CARGANDO (skeletons) ===== -->
+    <section id="carga" aria-label="Cargando datos" aria-busy="true">
+      <div class="kpis">
+        <div class="tarjeta skel-card" aria-hidden="true"><span class="skel skel-num"></span><span class="skel skel-etq"></span></div>
+        <div class="tarjeta skel-card" aria-hidden="true"><span class="skel skel-num"></span><span class="skel skel-etq"></span></div>
+        <div class="tarjeta skel-card" aria-hidden="true"><span class="skel skel-num"></span><span class="skel skel-etq"></span></div>
+        <div class="tarjeta skel-card" aria-hidden="true"><span class="skel skel-num"></span><span class="skel skel-etq"></span></div>
+        <div class="tarjeta skel-card" aria-hidden="true"><span class="skel skel-num"></span><span class="skel skel-etq"></span></div>
+        <div class="tarjeta skel-card" aria-hidden="true"><span class="skel skel-num"></span><span class="skel skel-etq"></span></div>
+      </div>
+      <div class="rejilla rejilla-2">
+        <div class="panel-caja"><span class="skel skel-linea"></span><span class="skel skel-bloque"></span></div>
+        <div class="panel-caja"><span class="skel skel-linea"></span><span class="skel skel-bloque"></span></div>
+      </div>
+    </section>
+
+    <!-- ===== Estado ERROR ===== -->
+    <section id="error" class="aviso aviso-error oculto" role="alert">
+      <div class="aviso-icono" aria-hidden="true">⚡</div>
+      <div>
+        <h2>Sin conexión con el servidor local</h2>
+        <p>No se pudo contactar con <code>/api/data</code>. Comprueba que
+           <code>python dashboard.py</code> siga en ejecución y vuelve a intentarlo.</p>
+        <button class="btn btn-primario" type="button" id="reintentar">Reintentar</button>
+      </div>
+    </section>
+
+    <!-- ===== Estado VACÍO ===== -->
+    <section id="vacio" class="aviso oculto">
+      <div class="aviso-icono" aria-hidden="true">📭</div>
+      <div>
+        <h2>Todavía no hay datos</h2>
+        <p id="vacio-msg">
+          Ejecuta <code>python keylogger.py</code>, escribe algo, presiona
+          <kbd>ESC</kbd> y vuelve a actualizar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Contenido CON datos ===== -->
+    <div id="panel" class="oculto">
+
+      <!-- Fila de KPIs -->
+      <section class="kpis" id="kpis" aria-label="Estadísticas generales"></section>
+
+      <!-- Actividad por ventana + Composición -->
+      <section class="rejilla rejilla-2">
+        <div class="panel-caja">
+          <div class="panel-caja-cab">
+            <h2><span class="prefijo-h" aria-hidden="true">&gt;</span> Actividad por ventana</h2>
+            <span class="hint">Pulsaciones por aplicación (top 8; el resto en «Otras»)</span>
+          </div>
+          <div id="grafico-ventanas" class="grafico"></div>
+        </div>
+
+        <div class="panel-caja">
+          <div class="panel-caja-cab">
+            <h2><span class="prefijo-h" aria-hidden="true">&gt;</span> Composición de pulsaciones</h2>
+            <span class="hint">Caracteres imprimibles vs. teclas especiales</span>
+          </div>
+          <div id="grafico-composicion" class="grafico grafico-centrado"></div>
+        </div>
+      </section>
+
+      <!-- Actividad en el tiempo -->
+      <section class="panel-caja">
+        <div class="panel-caja-cab">
+          <h2><span class="prefijo-h" aria-hidden="true">&gt;</span> Actividad en el tiempo</h2>
+          <span class="hint">Pulsaciones agrupadas según las marcas de tiempo de las ventanas (aproximado)</span>
+        </div>
+        <div id="grafico-tiempo" class="grafico"></div>
+      </section>
+
+      <!-- Teclas especiales + Actividad por sesión -->
+      <section class="rejilla rejilla-2">
+        <div class="panel-caja">
+          <div class="panel-caja-cab">
+            <h2><span class="prefijo-h" aria-hidden="true">&gt;</span> Teclas especiales más usadas</h2>
+            <span class="hint">Enter, backspace, modificadores…</span>
+          </div>
+          <div id="grafico-especiales" class="grafico"></div>
+        </div>
+
+        <div class="panel-caja">
+          <div class="panel-caja-cab">
+            <h2><span class="prefijo-h" aria-hidden="true">&gt;</span> Actividad por sesión</h2>
+            <span class="hint">Pulsaciones totales en cada ejecución</span>
+          </div>
+          <div id="grafico-sesiones" class="grafico"></div>
+        </div>
+      </section>
+
+      <!-- Línea de tiempo de sesiones -->
+      <section class="panel-caja">
+        <div class="panel-caja-cab">
+          <h2><span class="prefijo-h" aria-hidden="true">&gt;</span> Línea de tiempo de sesiones</h2>
+          <span class="hint">Cada ejecución del keylogger, con su duración y ventanas</span>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </section>
+
+      <!-- Registro por ventana -->
+      <section class="panel-caja">
+        <div class="panel-caja-cab con-filtro">
+          <div>
+            <h2><span class="prefijo-h" aria-hidden="true">&gt;</span> Registro por ventana</h2>
+            <span class="hint">Texto reconstruido en cada aplicación (se aplica retroceso ⌫)</span>
+          </div>
+          <div class="registro-controles">
+            <div class="filtro-bloque">
+              <label class="visualmente-oculto" for="filtro">Filtrar registros</label>
+              <span class="filtro-icono" aria-hidden="true">🔎</span>
+              <input type="search" id="filtro" class="filtro"
+                     placeholder="Filtrar por ventana o texto…"
+                     autocomplete="off" spellcheck="false" />
+              <span class="filtro-conteo" id="filtro-conteo" aria-live="polite"></span>
+            </div>
+            <div class="seg-control" role="group" aria-label="Tipo de vista del registro">
+              <button type="button" class="seg-btn activo" id="vista-detalle" aria-pressed="true">Detalle</button>
+              <button type="button" class="seg-btn" id="vista-tabla" aria-pressed="false">Tabla</button>
+            </div>
+            <button class="btn" type="button" id="csv" title="Descargar el registro como CSV (local)">
+              <span aria-hidden="true">⭳</span><span class="btn-txt">CSV</span>
+            </button>
+          </div>
+        </div>
+        <div id="segmentos" class="segmentos"></div>
+        <div id="tabla" class="tabla-wrap oculto"></div>
+      </section>
+
+    </div><!-- /#panel -->
+  </main>
+
+  <footer class="pie">
+    <span>Generado localmente · <span id="generado">—</span></span>
+    <span class="pie-legal">Registrar a terceros sin consentimiento es ilegal (Perú: Ley N.° 30096).</span>
+  </footer>
+
+  <!-- Botón para salir del modo presentación (solo visible en ese modo) -->
+  <button id="salir-presentacion" class="salir-presentacion oculto" type="button" aria-label="Salir del modo presentación">✕ Salir</button>
+
+  <!-- Tooltip flotante compartido por todos los gráficos -->
+  <div id="tooltip" class="tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

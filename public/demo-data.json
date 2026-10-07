@@ -1,0 +1,132 @@
+{
+  "has_data": true,
+  "generated_at": "2026-09-28 11:24:00 (DEMO — datos ficticios)",
+  "stats": {
+    "total_events": 506,
+    "total_chars": 466,
+    "total_specials": 40,
+    "windows_count": 6,
+    "sessions_count": 3,
+    "first_ts": "2026-09-28 09:15:02",
+    "last_ts": "2026-09-28 11:23:55",
+    "duration": "2 h 8 min 53 s"
+  },
+  "sessions": [
+    {
+      "index": 1,
+      "start": "2026-09-28 09:15:02",
+      "stop": "2026-09-28 09:19:30",
+      "duration": "4 min 28 s",
+      "events": 258,
+      "chars": 246,
+      "specials": 12,
+      "windows_count": 3,
+      "windows": ["★ DEMO — datos ficticios (no reales)", "Documento1 - Microsoft Word", "Nueva pestaña - Google Chrome"]
+    },
+    {
+      "index": 2,
+      "start": "2026-09-28 10:02:40",
+      "stop": "2026-09-28 10:10:05",
+      "duration": "7 min 25 s",
+      "events": 124,
+      "chars": 106,
+      "specials": 18,
+      "windows_count": 3,
+      "windows": ["Visual Studio Code", "Windows PowerShell", "WhatsApp"]
+    },
+    {
+      "index": 3,
+      "start": "2026-09-28 11:20:00",
+      "stop": "2026-09-28 11:23:55",
+      "duration": "3 min 55 s",
+      "events": 124,
+      "chars": 114,
+      "specials": 10,
+      "windows_count": 2,
+      "windows": ["Nueva pestaña - Google Chrome", "Documento1 - Microsoft Word"]
+    }
+  ],
+  "windows": [
+    {"window": "Documento1 - Microsoft Word", "chars": 171, "specials": 13, "events": 184},
+    {"window": "★ DEMO — datos ficticios (no reales)", "chars": 124, "specials": 2, "events": 126},
+    {"window": "Nueva pestaña - Google Chrome", "chars": 65, "specials": 7, "events": 72},
+    {"window": "Visual Studio Code", "chars": 44, "specials": 10, "events": 54},
+    {"window": "WhatsApp", "chars": 37, "specials": 3, "events": 40},
+    {"window": "Windows PowerShell", "chars": 25, "specials": 5, "events": 30}
+  ],
+  "special_keys": [
+    {"key": "enter", "count": 12},
+    {"key": "backspace", "count": 10},
+    {"key": "shift", "count": 8},
+    {"key": "tab", "count": 4},
+    {"key": "ctrl_l", "count": 3},
+    {"key": "esc", "count": 2},
+    {"key": "delete", "count": 1}
+  ],
+  "segments": [
+    {
+      "session": 1,
+      "ts": "2026-09-28 09:15:02",
+      "window": "★ DEMO — datos ficticios (no reales)",
+      "text": "Este panel muestra DATOS DE DEMOSTRACION ficticios. No provienen de ninguna captura real. Uso educativo — Curso de Hacking Etico.",
+      "chars": 124,
+      "specials": 2
+    },
+    {
+      "session": 1,
+      "ts": "2026-09-28 09:16:20",
+      "window": "Documento1 - Microsoft Word",
+      "text": "Estimado profesor, adjunto el informe del laboratorio de seguridad de la semana 8. Saludos cordiales.",
+      "chars": 88,
+      "specials": 6
+    },
+    {
+      "session": 1,
+      "ts": "2026-09-28 09:18:05",
+      "window": "Nueva pestaña - Google Chrome",
+      "text": "owasp top 10 2021 explicacion",
+      "chars": 34,
+      "specials": 4
+    },
+    {
+      "session": 2,
+      "ts": "2026-09-28 10:03:10",
+      "window": "Visual Studio Code",
+      "text": "def analizar_registro(ruta):\n    return leer(ruta)  # demo",
+      "chars": 44,
+      "specials": 10
+    },
+    {
+      "session": 2,
+      "ts": "2026-09-28 10:05:33",
+      "window": "Windows PowerShell",
+      "text": "python dashboard.py --lan",
+      "chars": 25,
+      "specials": 5
+    },
+    {
+      "session": 2,
+      "ts": "2026-09-28 10:09:12",
+      "window": "WhatsApp",
+      "text": "hola equipo, ya subi el codigo de la demo al repo",
+      "chars": 37,
+      "specials": 3
+    },
+    {
+      "session": 3,
+      "ts": "2026-09-28 11:20:15",
+      "window": "Nueva pestaña - Google Chrome",
+      "text": "firebase hosting deploy tutorial",
+      "chars": 31,
+      "specials": 3
+    },
+    {
+      "session": 3,
+      "ts": "2026-09-28 11:23:40",
+      "window": "Documento1 - Microsoft Word",
+      "text": "Conclusiones: la defensa en profundidad, el MFA y el egress filtering reducen el impacto del keylogging.",
+      "chars": 83,
+      "specials": 7
+    }
+  ]
+}

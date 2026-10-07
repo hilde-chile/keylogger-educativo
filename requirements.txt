@@ -1,0 +1,20 @@
+# ============================================================================
+#  Dependencias del Keylogger Educativo
+# ============================================================================
+
+# --- OBLIGATORIA -----------------------------------------------------------
+# Captura de eventos de teclado (enganche multiplataforma).
+pynput==1.7.7
+
+# --- OPCIONALES (el proyecto funciona sin ellas) ---------------------------
+# Título de la ventana activa MULTIPLATAFORMA (Windows / Linux / macOS).
+# Si NO se instala: en Windows se usa ctypes (incluido en Python) y en otros
+# sistemas el título de ventana se registra como "N/D". Se importa con
+# try/except, así que nunca es imprescindible.
+#   pip install pywinctl
+# pywinctl>=0.0.50
+
+# Para ejecutar la batería de pruebas (tests/), que NO requieren teclado real:
+#   pip install pytest
+#   pytest -q
+# pytest>=7.0
